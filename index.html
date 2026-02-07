@@ -3,78 +3,109 @@
 <head>
 <meta charset="UTF-8">
 <title>Valentine 💖</title>
+
 <style>
-body {
-  background: #ffe6ec;
-  font-family: Arial, sans-serif;
-  text-align: center;
-}
-.card {
-  background: white;
-  width: 90%;
-  max-width: 400px;
-  margin: 60px auto;
-  padding: 20px;
-  border-radius: 20px;
-}
-button {
-  padding: 12px 20px;
-  margin: 10px;
-  border: none;
-  border-radius: 10px;
-  font-size: 16px;
-  cursor: pointer;
-}
-.yes { background: #ff4d6d; color: white; }
-.no { background: #ddd; }
-img {
-  width: 100%;
-  border-radius: 15px;
-  margin-top: 15px;
-}
+  body {
+    background: #ffe6ec;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+  }
+
+  .card {
+    background: white;
+    width: 90%;
+    max-width: 400px;
+    margin: 80px auto;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  }
+
+  h2 {
+    color: #c9184a;
+  }
+
+  button {
+    padding: 12px 24px;
+    margin: 12px;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .yes {
+    background: #ff4d6d;
+    color: white;
+  }
+
+  .no {
+    background: #e0e0e0;
+    position: relative;
+  }
+
+  #msg {
+    margin-top: 15px;
+    font-weight: bold;
+    color: #6a040f;
+    display: none;
+  }
+
+  img {
+    width: 100%;
+    border-radius: 15px;
+    margin-top: 15px;
+  }
 </style>
 </head>
 
 <body>
+
 <div class="card" id="box">
   <h2>Suma, will you be my Valentine? 💕</h2>
+
   <button class="yes" onclick="yes()">YES</button>
   <button class="no" onclick="no()">NO</button>
+
+  <p id="msg"></p>
 </div>
 
 <script>
 let noCount = 0;
 
 const messages = [
+  "You might regret this 😏",
+  "Think again 🤔",
+  "Really sure?",
+  "Don't do this to me 💔",
   "Please no 🥺",
   "I will cry 😭",
   "Give it another thought 💭",
   "Are you absolutely certain? 🤨",
   "This is your last chance 😢"
-   "You might regret this 😏",
-  "Think again 🤔",
-  "Really sure?",
-  "Don't do this to me 💔",
-  "I will cry 😭",
 ];
+
 function no() {
   const noBtn = document.querySelector(".no");
   const msgBox = document.getElementById("msg");
 
-  // show messages one by one
+  // show messages in order
   if (noCount < messages.length) {
     msgBox.innerText = messages[noCount];
     msgBox.style.display = "block";
   }
 
-  // move NO button
+  // move NO button randomly
   const x = Math.random() * 200 - 100;
   const y = Math.random() * 200 - 100;
   noBtn.style.transform = `translate(${x}px, ${y}px)`;
 
   noCount++;
 
-  // after all messages, hide NO button
+  // hide NO button after all messages
   if (noCount >= messages.length) {
     noBtn.style.display = "none";
     msgBox.innerText = "No option disabled 😈";
@@ -85,11 +116,12 @@ function yes() {
   document.getElementById("box").innerHTML = `
     <h2>YAY!!! 💖</h2>
     <p>Best decision ever 😘</p>
-    <img src="love.gif">
+    <img src="love.gif" alt="Love">
     <p>I love you ❤️</p>
     <p>~ Eswar</p>
   `;
 }
 </script>
 
-
+</body>
+</html>
