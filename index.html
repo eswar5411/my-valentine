@@ -43,8 +43,41 @@ img {
 </div>
 
 <script>
+let noCount = 0;
+
+const messages = [
+  "Please no 🥺",
+  "I will cry 😭",
+  "Give it another thought 💭",
+  "Are you absolutely certain? 🤨",
+  "This is your last chance 😢"
+   "You might regret this 😏",
+  "Think again 🤔",
+  "Really sure?",
+  "Don't do this to me 💔",
+  "I will cry 😭",
+];
+
 function no() {
-  alert("Please think again 🥺");
+  const noBtn = document.querySelector(".no");
+  const msgBox = document.getElementById("msg");
+
+  // change message
+  msgBox.innerText = messages[noCount % messages.length];
+  msgBox.style.display = "block";
+
+  // move NO button randomly
+  const x = Math.random() * 200 - 100;
+  const y = Math.random() * 200 - 100;
+  noBtn.style.transform = `translate(${x}px, ${y}px)`;
+
+  noCount++;
+
+  // after 5 tries, hide NO button
+  if (noCount >= 5) {
+    noBtn.style.display = "none";
+    msgBox.innerText = "No option disabled 😈";
+  }
 }
 
 function yes() {
@@ -57,5 +90,6 @@ function yes() {
   `;
 }
 </script>
+
 </body>
 </html>
