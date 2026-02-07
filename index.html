@@ -57,24 +57,25 @@ const messages = [
   "Don't do this to me 💔",
   "I will cry 😭",
 ];
-
 function no() {
   const noBtn = document.querySelector(".no");
   const msgBox = document.getElementById("msg");
 
-  // change message
-  msgBox.innerText = messages[noCount % messages.length];
-  msgBox.style.display = "block";
+  // show messages one by one
+  if (noCount < messages.length) {
+    msgBox.innerText = messages[noCount];
+    msgBox.style.display = "block";
+  }
 
-  // move NO button randomly
+  // move NO button
   const x = Math.random() * 200 - 100;
   const y = Math.random() * 200 - 100;
   noBtn.style.transform = `translate(${x}px, ${y}px)`;
 
   noCount++;
 
-  // after 5 tries, hide NO button
-  if (noCount >= 5) {
+  // after all messages, hide NO button
+  if (noCount >= messages.length) {
     noBtn.style.display = "none";
     msgBox.innerText = "No option disabled 😈";
   }
@@ -91,5 +92,4 @@ function yes() {
 }
 </script>
 
-</body>
-</html>
+
