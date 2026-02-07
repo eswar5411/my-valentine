@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Valentine 💖</title>
+<style>
+body {
+  background: #ffe6ec;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+.card {
+  background: white;
+  width: 90%;
+  max-width: 400px;
+  margin: 60px auto;
+  padding: 20px;
+  border-radius: 20px;
+}
+button {
+  padding: 12px 20px;
+  margin: 10px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.yes { background: #ff4d6d; color: white; }
+.no { background: #ddd; }
+img {
+  width: 100%;
+  border-radius: 15px;
+  margin-top: 15px;
+}
+</style>
+</head>
+
+<body>
+<div class="card" id="box">
+  <h2>Suma, will you be my Valentine? 💕</h2>
+  <button class="yes" onclick="yes()">YES</button>
+  <button class="no" onclick="no()">NO</button>
+</div>
+
+<script>
+function no() {
+  alert("Please think again 🥺");
+}
+
+function yes() {
+  document.getElementById("box").innerHTML = `
+    <h2>YAY!!! 💖</h2>
+    <p>Best decision ever 😘</p>
+    <img src="love.jpg">
+    <p>I love you ❤️</p>
+    <p>~ Eswar</p>
+  `;
+}
+</script>
+</body>
+</html>
